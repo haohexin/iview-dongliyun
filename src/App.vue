@@ -7,9 +7,9 @@
 <script>
     export default {
         data () {
-            // return {
-            //     theme: this.$store.state.app.themeColor
-            // };
+            return {
+                // theme: this.$store.state.app.themeColor
+            };
         },
         mounted () {
 

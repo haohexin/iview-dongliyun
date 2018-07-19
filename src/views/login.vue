@@ -58,6 +58,9 @@
         },
         methods: {
             handleSubmit () {
+                this.$router.push({
+                    name: 'home'
+                });
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
                         Cookies.set('user', this.form.userName);
@@ -69,7 +72,7 @@
                             Cookies.set('access', 1);
                         }
                         this.$router.push({
-                            name: 'home_index'
+                            name: 'home'
                         });
                     }
                 });

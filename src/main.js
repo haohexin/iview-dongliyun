@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
+import util from './libs/util';
 
 Vue.use(iView);
 
