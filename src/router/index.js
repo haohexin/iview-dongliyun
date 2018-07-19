@@ -20,7 +20,7 @@ export default new Router({
             name: 'main',
             component: () => import('@/views/main'),
             children: [
-                { path: 'home', title: {i18n: 'home'}, name: 'home', component: () => import('@/views/home/home2.vue') },
+                {path: 'home', title: {i18n: 'home'}, name: 'home', component: () => import('@/views/home/home2.vue')},
             ]
         },
         // {

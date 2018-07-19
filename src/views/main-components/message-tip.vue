@@ -9,22 +9,23 @@
 </template>
 
 <script>
-import util from '@/libs/util.js';
-export default {
-    name: 'messageTip',
-    props: {
-        value: {
-            type: Number,
-            default: 0
+    import util from '@/libs/util.js';
+
+    export default {
+        name: 'messageTip',
+        props: {
+            value: {
+                type: Number,
+                default: 0
+            }
+        },
+        methods: {
+            showMessage() {
+                util.openNewPage(this, 'message_index');
+                this.$router.push({
+                    name: 'message_index'
+                });
+            }
         }
-    },
-    methods: {
-        showMessage () {
-            util.openNewPage(this, 'message_index');
-            this.$router.push({
-                name: 'message_index'
-            });
-        }
-    }
-};
+    };
 </script>

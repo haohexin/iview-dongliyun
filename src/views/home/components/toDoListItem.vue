@@ -18,20 +18,20 @@
 </template>
 
 <script>
-export default {
-    name: 'toDoListItem',
-    data () {
-        return {
-            todoitem: false
-        };
-    },
-    props: {
-        content: String
-    },
-    methods: {
-        handleHasDid () {
-            this.todoitem = !this.todoitem;
+    export default {
+        name: 'toDoListItem',
+        data() {
+            return {
+                todoitem: false
+            };
+        },
+        props: {
+            content: String
+        },
+        methods: {
+            handleHasDid() {
+                this.todoitem = !this.todoitem;
+            }
         }
-    }
-};
+    };
 </script>

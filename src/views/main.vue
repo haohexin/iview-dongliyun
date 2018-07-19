@@ -13,8 +13,8 @@
                         :open-names="openedSubmenuArr"
                         :menu-list="menuList">
                     <div slot="top" class="logo-con">
-                        <img v-show="!shrink"  src="../images/logo.jpg" key="max-logo" />
-                        <img v-show="shrink" src="../images/logo-min.jpg" key="min-logo" />
+                        <img v-show="!shrink" src="../images/logo.jpg" key="max-logo"/>
+                        <img v-show="shrink" src="../images/logo-min.jpg" key="min-logo"/>
                     </div>
                 </shrinkable-menu>
             </scroll-bar>
@@ -22,7 +22,8 @@
         <div class="main-header-con" :style="{paddingLeft: shrink?'60px':'200px'}">
             <div class="main-header">
                 <div class="navicon-con">
-                    <Button :style="{transform: 'rotateZ(' + (this.shrink ? '-90' : '0') + 'deg)'}" type="text" @click="toggleClick">
+                    <Button :style="{transform: 'rotateZ(' + (this.shrink ? '-90' : '0') + 'deg)'}" type="text"
+                            @click="toggleClick">
                         <Icon type="navicon" size="32"></Icon>
                     </Button>
                 </div>
@@ -90,7 +91,7 @@
             // themeSwitch,
             // scrollBar
         },
-        data () {
+        data() {
             return {
                 shrink: false,
                 userName: '',
@@ -125,7 +126,7 @@
             // }
         },
         methods: {
-            init () {
+            init() {
                 let pathArr = util.setCurrentPath(this, this.$route.name);
                 this.$store.commit('updateMenulist');
                 if (pathArr.length >= 2) {
@@ -137,10 +138,10 @@
                 this.checkTag(this.$route.name);
                 this.$store.commit('setMessageCount', 3);
             },
-            toggleClick () {
+            toggleClick() {
                 this.shrink = !this.shrink;
             },
-            handleClickUserDropdown (name) {
+            handleClickUserDropdown(name) {
                 if (name === 'ownSpace') {
                     util.openNewPage(this, 'ownspace_index');
                     this.$router.push({
@@ -155,7 +156,7 @@
                     });
                 }
             },
-            checkTag (name) {
+            checkTag(name) {
                 let openpageHasTag = this.pageTagsList.some(item => {
                     if (item.name === name) {
                         return true;
@@ -165,10 +166,10 @@
                     util.openNewPage(this, name, this.$route.params || {}, this.$route.query || {});
                 }
             },
-            handleSubmenuChange (val) {
+            handleSubmenuChange(val) {
                 // console.log(val)
             },
-            beforePush (name) {
+            beforePush(name) {
                 // if (name === 'accesstest_index') {
                 //     return false;
                 // } else {
@@ -176,15 +177,15 @@
                 // }
                 return true;
             },
-            fullscreenChange (isFullScreen) {
+            fullscreenChange(isFullScreen) {
                 // console.log(isFullScreen);
             },
-            scrollBarResize () {
+            scrollBarResize() {
                 this.$refs.scrollBar.resize();
             }
         },
         watch: {
-            '$route' (to) {
+            '$route'(to) {
                 this.$store.commit('setCurrentPageName', to.name);
                 let pathArr = util.setCurrentPath(this, to.name);
                 if (pathArr.length > 2) {
@@ -193,24 +194,24 @@
                 this.checkTag(to.name);
                 localStorage.currentPageName = to.name;
             },
-            lang () {
+            lang() {
                 util.setCurrentPath(this, this.$route.name); // 在切换语言时用于刷新面包屑
             },
-            openedSubmenuArr () {
+            openedSubmenuArr() {
                 setTimeout(() => {
                     this.scrollBarResize();
                 }, 300);
             }
         },
-        mounted () {
+        mounted() {
             this.init();
             window.addEventListener('resize', this.scrollBarResize);
         },
-        created () {
+        created() {
             // 显示打开的页面的列表
             this.$store.commit('setOpenedList');
         },
-        dispatch () {
+        dispatch() {
             window.removeEventListener('resize', this.scrollBarResize);
         }
     };

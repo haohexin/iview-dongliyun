@@ -1,5 +1,6 @@
 var idTmr;
-function getExplorer () {
+
+function getExplorer() {
     var explorer = window.navigator.userAgent;
     if (explorer.indexOf('MSIE') >= 0) {
         // ie
@@ -16,9 +17,11 @@ function getExplorer () {
     } else if (explorer.indexOf('Safari') >= 0) {
         // Safari
         return 'Safari';
-    };
+    }
+    ;
 };
-function tranform (table, aId, name) {
+
+function tranform(table, aId, name) {
     let tableHead = table.$children[0].$el;
     let tableBody = table.$children[1].$el;
     let tableInnerHTML = '<thead><tr>';
@@ -74,16 +77,22 @@ function tranform (table, aId, name) {
         tableToExcel(tableInnerHTML, aId, name);
     }
 }
-function Cleanup () {
+
+function Cleanup() {
     window.clearInterval(idTmr);
     // CollectGarbage();
 }
+
 let tableToExcel = (function () {
     let uri = 'data:application/vnd.ms-excel;base64,';
     let template = '<html><head><meta charset="UTF-8"></head><body><table>{table}</table></body></html>';
-    let base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))); };
+    let base64 = function (s) {
+        return window.btoa(unescape(encodeURIComponent(s)));
+    };
     let format = function (s, c) {
-        return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; });
+        return s.replace(/{(\w+)}/g, function (m, p) {
+            return c[p];
+        });
     };
     return function (table, aId, name) {
         let ctx = {worksheet: name || 'Worksheet', table: table};

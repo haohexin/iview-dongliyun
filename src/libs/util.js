@@ -1,12 +1,9 @@
-
 import axios from 'axios';
 import env from '../../build/env';
 import semver from 'semver';
 import packjson from '../../package.json';
 
-let util = {
-
-};
+let util = {};
 util.title = function (title, vm) {
     let iTitle = 'iView admin';
     if (title) {

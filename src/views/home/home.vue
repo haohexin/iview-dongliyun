@@ -12,7 +12,7 @@
                             <Row type="flex" class="user-infor">
                                 <Col span="8">
                                     <Row class-name="made-child-con-middle" type="flex" align="middle">
-                                        <img class="avator-img" :src="avatorPath" />
+                                        <img class="avator-img" :src="avatorPath"/>
                                     </Row>
                                 </Col>
                                 <Col span="16" style="padding-left:6px;">
@@ -50,7 +50,8 @@
                                     @on-ok="addNew"
                                     @on-cancel="cancelAdd">
                                 <Row type="flex" justify="center">
-                                    <Input v-model="newToDoItemValue" icon="compose" placeholder="请输入..." style="width: 300px" />
+                                    <Input v-model="newToDoItemValue" icon="compose" placeholder="请输入..."
+                                           style="width: 300px"/>
                                 </Row>
                                 <Row slot="footer">
                                     <Button type="text" @click="cancelAdd">取消</Button>
@@ -58,7 +59,8 @@
                                 </Row>
                             </Modal>
                             <div class="to-do-list-con">
-                                <div v-for="(item, index) in toDoList" :key="'todo-item' + (toDoList.length - index)" class="to-do-item">
+                                <div v-for="(item, index) in toDoList" :key="'todo-item' + (toDoList.length - index)"
+                                     class="to-do-item">
                                     <to-do-list-item :content="item.title"></to-do-list-item>
                                 </div>
                             </div>
@@ -114,7 +116,8 @@
                         </p>
                         <div class="map-con">
                             <Col span="10">
-                                <map-data-table :cityData="cityData" height="281" :style-obj="{margin: '12px 0 0 11px'}"></map-data-table>
+                                <map-data-table :cityData="cityData" height="281"
+                                                :style-obj="{margin: '12px 0 0 11px'}"></map-data-table>
                             </Col>
                             <Col span="14" class="map-incon">
                                 <Row type="flex" justify="center" align="middle">
@@ -200,7 +203,7 @@
             mapDataTable,
             toDoListItem
         },
-        data () {
+        data() {
             return {
                 toDoList: [
                     {
@@ -236,10 +239,10 @@
             // }
         },
         methods: {
-            addNewToDoItem () {
+            addNewToDoItem() {
                 this.showAddNewTodo = true;
             },
-            addNew () {
+            addNew() {
                 if (this.newToDoItemValue.length !== 0) {
                     this.toDoList.unshift({
                         title: this.newToDoItemValue
@@ -252,7 +255,7 @@
                     this.$Message.error('请输入待办事项内容');
                 }
             },
-            cancelAdd () {
+            cancelAdd() {
                 this.showAddNewTodo = false;
                 this.newToDoItemValue = '';
             }

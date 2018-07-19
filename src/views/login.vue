@@ -39,8 +39,9 @@
 
 <script>
     import Cookies from 'js-cookie';
+
     export default {
-        data () {
+        data() {
             return {
                 form: {
                     userName: 'iview_admin',
@@ -48,16 +49,16 @@
                 },
                 rules: {
                     userName: [
-                        { required: true, message: '账号不能为空', trigger: 'blur' }
+                        {required: true, message: '账号不能为空', trigger: 'blur'}
                     ],
                     password: [
-                        { required: true, message: '密码不能为空', trigger: 'blur' }
+                        {required: true, message: '密码不能为空', trigger: 'blur'}
                     ]
                 }
             };
         },
         methods: {
-            handleSubmit () {
+            handleSubmit() {
                 this.$router.push({
                     name: 'home'
                 });
